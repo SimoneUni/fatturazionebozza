@@ -1,0 +1,19 @@
+<odoo>
+
+     <record id="fatturazione_action" model="ir.actions.act_window">
+            <field name="name">Fatturazione del BB</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.move</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crea un nuovo record ,muoviti
+                </p>
+            </field>
+    </record>
+
+    <menuitem id="test_model_menu"
+              name="Fatturazione BB"
+              action="fatturazione_action"
+              sequence="1"/>
+</odoo>
