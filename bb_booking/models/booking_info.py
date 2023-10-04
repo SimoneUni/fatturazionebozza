@@ -3,6 +3,10 @@ from odoo import models, fields
 class roombooking(models.Model):
     _inherit = "account.move"
 
+
+
+
+
     # INFORMAZIONI GENERALI DELLA PRENOTAZIONE
     refer = fields.Char(string='ID Prenotazione')
     status = fields.Selection([
@@ -14,12 +18,12 @@ class roombooking(models.Model):
     checkout = fields.Datetime(string='Data e Ora di Check-out')
     createTime = fields.Datetime(string='Data di Creazione')
     updateTime = fields.Datetime(string='Data di Aggiornamento')
-    channelNotes = fields.Text(string='Note del Canale')
+
     children = fields.Integer(string='Numero di Ragazzi')
     infants = fields.Integer(string='Numero di Neonati')
     phone = fields.Char(string='Numero di Telefono')
-    roomGross = fields.Float(string='Costo Stanza')
-    totalGross = fields.Float(string='Costo Totale')
+
+
     totalGuest = fields.Integer(string='Ospiti Totali')
     
     # ALTRE INFORMAZIONI DELLA PRENOTAZIONE
@@ -33,9 +37,19 @@ class roombooking(models.Model):
     paymentStatus = fields.Char(string='Stato del Pagamento')
     paymentType = fields.Char(string='Metodo di Pagamento')
     product_id = fields.Many2one('product.product', string='Prodotto')
-    roomName = fields.Char(string='Nome Stanza')
-    rooms = fields.Integer(string='Numero di Stanze')
+
+
     totalChildren = fields.Integer(string='Totali Ragazzi')
     totalInfants = fields.Integer(string='Totali Neonati')
     totalPaid = fields.Float(string='Totale Pagato')
+
+
+class roombookingline(models.Model):
+    _inherit = "account.move.line"
+
+    roomName = fields.Char(string='Nome Stanza')
+    rooms = fields.Integer(string='Numero di Stanze')
+    roomGross = fields.Float(string='Costo Stanza')
+    totalGross = fields.Float(string='Costo Totale')
     touristTax = fields.Float(string='Tassa Turistica')
+    channelNotes = fields.Text(string='Note')
